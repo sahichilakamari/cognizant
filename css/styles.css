@@ -1,1 +1,200 @@
+/* Typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Lora:ital,wght@1,400&display=swap');
+body {
+  font-family: 'Roboto', sans-serif;
+}
 
+nav {
+  background-color: #696363;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+/* Body Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 24px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.description {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+  text-align: justify;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+#welcomeBanner{
+    text-align: center;
+}
+
+/* Banner ID selector */
+#mainHeader {
+  background-color: #007BFF;
+  color: white;
+  padding: 20px;
+}
+
+/* Event card class */
+.eventCard {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  outline: 2px solid transparent;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+.eventCard.selected {
+  outline: 2px solid #007BFF;
+}
+
+form,section{
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+}
+input, select, textarea {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+}
+button {
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+/* Grouping selector */
+h3, p {
+  color: #333;
+  font-weight: normal;
+}
+
+/* Background Styling */
+body {
+  background-image: url('background.jpg');
+  background-color: #e0e0e0;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+section h2 {
+  background: linear-gradient(to right, #759bd9, #5a80be);
+  color: white;
+  padding: 10px;
+}
+
+/* Link Styling */
+a:link {
+  color: #007BFF;
+}
+a:hover {
+  color: #0056b3;
+}
+a:visited {
+  color: rgb(72, 13, 72);
+}
+a:active {
+  color: red;
+}
+
+/* List Styling */
+nav ul {
+  list-style-type: none;
+  list-style-position: outside;
+  padding: 0;
+  margin: 0;
+}
+nav li {
+  display: inline-block;
+  margin-right: 15px;
+  padding: 5px 10px;
+}
+
+/* Table Styling */
+table, th, td {
+  border: 1px solid #333;
+  border-collapse: collapse;
+  padding: 10px;
+  text-align: center;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Box Model */
+.eventCard {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #999;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+input:focus {
+  outline: 2px solid #007BFF;
+}
+
+/* Visibility vs Display */
+.hidden-box {
+  visibility: hidden;
+}
+.none-box {
+  display: none;
+}
+
+/* Multi-Column Text */
+.news-section {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+}
+
+/* Responsive Media Query */
+@media screen and (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  img {
+    width: 80%;
+    height: auto;
+  }
+  body {
+    font-size: 14px;
+  }
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+  .eventCard, .news-section {
+    width: 90vw;
+    margin: 10px auto;
+  }
+}
+/* Flexbox Example */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Grid Example */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
