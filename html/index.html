@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Community Event Portal</title>
+  <style>
+    body {
+      background-color: #e4e6e9;
+    }
+  </style>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body onunload="return confirmLeave()">
+  <!-- Navigation -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#events">Events</a>
+    <a href="#contact">Contact</a>
+    <a href="help.html" target="_blank">Help</a>
+  </nav>
 
+  <!-- Welcome Banner -->
+  <div id="welcomeBanner">
+    <h1>WELCOME TO OUR LOCAL COMMUNITY PORTAL</h1>
+    <p><span style="color: red; font-weight: bold;">Special Offer:</span> 30% off on all events till this week!!!</p>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Events Section -->
+    <section id="events">
+      <h2 class="highlight">Community Events Gallery</h2>
+      <table>
+        <tr>
+          <td><figure><img src="img1.jpg" alt="Event 1" title="Music Night"><figcaption>Music Night</figcaption></figure></td>
+          <td><figure><img src="img2.jpg" alt="Event 2" title="Tech Talk"><figcaption>Tech Talk</figcaption></figure></td>
+          <td><figure><img src="img3.jpg" alt="Event 3" title="Art Show"><figcaption>Art Show</figcaption></figure></td>
+        </tr>
+        <tr>
+          <td><figure><img src="img4.jpg" alt="Event 4" title="Food Fest"><figcaption>Food Fest</figcaption></figure></td>
+          <td><figure><img src="img5.jpg" alt="Event 5" title="Sports Day"><figcaption>Sports Day</figcaption></figure></td>
+          <td><figure><img src="img6.jpg" alt="Event 6" title="Cultural Night"><figcaption>Cultural Night</figcaption></figure></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="register">
+      <h2>Event Registration</h2>
+      <form onsubmit="event.preventDefault(); document.getElementById('regOutput').value='Registration Successful!';">
+        <input type="text" name="name" placeholder="Your Name" required autofocus>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="date" name="date" required>
+        <select id="eventSelect" name="eventType" required onchange="savePreference(this.value)">
+          <option value="">Select Event</option>
+          <option value="music">Music Night</option>
+          <option value="tech">Tech Talk</option>
+          <option value="art">Art Show</option>
+        </select>
+        <textarea name="message" placeholder="Your Message"></textarea>
+        <output id="regOutput"></output>
+        <button onclick="registerUser()">Register</button>
+      </form>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback">
+      <h2>Give Your Feedback</h2>
+      <input type="text" id="phone" placeholder="Phone Number" onblur="validatePhone(this)">
+      <select onchange="document.getElementById('fee').innerText='Fee: ₹' + this.value">
+        <option value="0">Choose Event</option>
+        <option value="200">Music Night</option>
+        <option value="150">Tech Talk</option>
+        <option value="100">Art Show</option>
+      </select>
+      <p id="fee">Fee: ₹0</p>
+      <textarea id="feedbackText" placeholder="Type your feedback here..." onkeyup="countChars(this)"></textarea>
+      <p id="charCount">Characters: 0</p>
+      <img src="event.jpg" alt="Event Poster" id="eventImg" ondblclick="enlargeImage(this)" width="200">
+      <button onclick="document.getElementById('confirmMsg').innerText='Feedback submitted!'">Submit Feedback</button>
+      <p id="confirmMsg"></p>
+    </section>
+
+    <!-- Video Invite -->
+    <section id="video">
+      <h2>Event Promo Video</h2>
+      <video width="400" controls oncanplay="document.getElementById('videoMsg').innerText='Video ready to play!'">
+        <source src="promo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p id="videoMsg"></p>
+    </section>
+
+    <!-- Preferences and Geolocation -->
+    <section id="extras">
+      <h2>Your Preferences</h2>
+      <button onclick="loadPreference()">Load Preferred Event</button>
+      <button onclick="clearPreferences()">Clear Preferences</button>
+
+      <h2>Find Events Near You</h2>
+      <button onclick="getLocation()">Find Nearby Events</button>
+      <p id="location"></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p style="text-align:center">&copy; 2025 Local City Community. All rights reserved.</p>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
